@@ -1,0 +1,105 @@
+<div class="p-4 flex justify-between">
+  <h1 class="text-3xl">
+    Users List
+  </h1>
+  <div class="m-3">
+    <button
+      class="bg-white text-gray-800 font-bold rounded border-b-2 border-red-500 hover:border-red-600 hover:bg-red-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center"
+      routerLink="/home"
+    >
+      <i class="fas fa-sign-out-alt"></i>
+    </button>
+  </div>
+  <div class="m-3">
+    <button
+      class="bg-white text-gray-800 font-bold rounded border-b-2 border-green-500 hover:border-green-600 hover:bg-green-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center"
+      (click)="goCreateUser()"
+    >
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
+</div>
+
+<table class="border-collapse w-full">
+  <thead>
+    <tr>
+      <th
+        class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell"
+      >
+        Name
+      </th>
+      <th
+        class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell"
+      >
+        Lastname
+      </th>
+      <th
+        class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell"
+      >
+        Email
+      </th>
+      <th
+        class="p-3 font-bold uppercase bg-gray-200 text-gray-600 border border-gray-300 hidden lg:table-cell"
+      >
+        Actions
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      class="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0"
+      *ngFor="let item of userData"
+    >
+      <td
+        class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static"
+      >
+        <span
+          class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase"
+          >Name</span
+        >
+        {{ item.name }}
+      </td>
+      <td
+        class="w-full lg:w-auto p-3 text-gray-800 text-center border border-b text-center block lg:table-cell relative lg:static"
+      >
+        <span
+          class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase"
+          >Lastname</span
+        >
+        {{ item.lastname }}
+      </td>
+      <td
+        class="w-full lg:w-auto p-3 text-gray-800 border border-b text-center block lg:table-cell relative lg:static"
+      >
+        <span
+          class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase"
+          >Email</span
+        >
+        <span class="rounded bg-red-400 py-1 px-3 text-xs font-bold">{{
+          item.email
+        }}</span>
+      </td>
+      <td
+        class="w-full lg:w-auto p-3 text-gray-800 border border-b text-center block lg:table-cell relative lg:static"
+      >
+        <span
+          class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase"
+          >Actions</span
+        >
+        <button
+          class="bg-white text-gray-800 font-bold rounded border-b-2 border-blue-500 hover:border-blue-600 hover:bg-blue-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center"
+          (click)="edit(item)"
+        >
+          <i class="fas fa-edit"></i>
+        </button>
+
+        <button
+          class="bg-white text-gray-800 font-bold rounded border-b-2 border-red-500 hover:border-red-600 hover:bg-red-500 hover:text-white shadow-md py-2 px-6 inline-flex items-center"
+          (click)="delete(item._id)"
+        >
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

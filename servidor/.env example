@@ -1,0 +1,8 @@
+PORT =
+HOST_DB = ''
+USER_DB = ''
+PASS_DB = ''
+NAME_DB = ''
+KEY_SESSION = ''
+KEY_JWT = ''
+TIME = ''
